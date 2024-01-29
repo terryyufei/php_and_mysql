@@ -1,13 +1,7 @@
 <?php
 
-    // connect to db
-    $conn = mysqli_connect("localhost","terry","test1234","baobei_pizza");
+    include('./config/db_connect.php') ;   
 
-    // check the connection
-    if (!$conn){
-        echo"connection error: " . mysqli_connect_errno();
-    }
-   
     // write query for all pizzas
     $sql = "SELECT title, ingredients, id FROM pizzas ORDER BY created_at";
 
@@ -51,7 +45,7 @@
                             </ul>
                         </div>
                         <div class="card-action right-align">
-                            <a href="#" class="brand-text">more info</a>
+                            <a href="details.php?id=<?php echo $pizza['id']?>" class="brand-text">more info</a>
                         </div>
                     </div>
                 </div>
